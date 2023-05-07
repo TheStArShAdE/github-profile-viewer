@@ -12,12 +12,10 @@ const UserList = () => {
   const [loading, setLoading] = useState(false);
   const scrollContainerRef = useRef(null)
 
-  const accessToken = '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';
+  const accessToken = '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';
 
   const handleInputChange = (event) => {
-    console.log('----- changing q ------', event.target.value);
     setQuery(event.target.value);
-    console.log('---- query -------', query)
   };
 
   const handleScroll = (event) => {
@@ -31,7 +29,6 @@ const UserList = () => {
   }, [query])
 
   const loadMoreUsers = async () => {
-    console.log('------ second call ------------------------', query);
     try {
       setLoading(true);
       const response = await fetch(`https://api.github.com/search/users?q=${query}&page=${page + 1}&per_page=8`, {
@@ -64,17 +61,18 @@ const UserList = () => {
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(
-        `https://api.github.com/search/users?q=${query}&per_page=8`,
-        {
-          headers: {
-            Authorization: `token ${accessToken}`,
-          },
+      const response = await fetch(`https://api.github.com/search/users?q=${query}&per_page=8`, {
+        headers: {
+          Authorization: `token ${accessToken}`
         }
-      );
+      });
       const data = await response.json();
       const user = await data.items.map(async (each) => {
-        const userResponse = await fetch(each.url);
+        const userResponse = await fetch(each.url, {
+          headers: {
+            Authorization: `token ${accessToken}`
+          }
+        });
         const userData = await userResponse.json();
         each.userDetails = userData
         return each

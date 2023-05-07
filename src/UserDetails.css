@@ -55,5 +55,7 @@ p {
 }
 .repo-grid {
     display: grid;
+    position: relative;
+    bottom: 50px;
     grid-gap: 10px;
 }

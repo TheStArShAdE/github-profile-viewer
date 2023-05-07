@@ -40,14 +40,18 @@ const UserDetails = () => {
             <img className="avatar" width='15%' height='20%' src={user.avatar_url} alt={user.login} />
           </div>
           <div className="details">
-            <p className="bio">Bio<br/> {user.bio}</p>
+            <p className="bio" style={{color: "rgb(100, 100, 100)"}}>Bio</p>
+            <p className='bio'>{user.bio}</p>
             <br/>
-            <p className="company">Works at<br/> {user.company}</p>
+            <p className="company" style={{color: "rgb(100, 100, 100)"}}>Works at</p>
+            <p className='company'> {user.company}</p>
             <br/>
-            <p className="repo">Repositories<br/> {user.public_repos}</p>
-            <p className="followers">Followers<br/> {user.followers}</p>
+            <p className="repo" style={{color: "rgb(100, 100, 100)"}}>Repositories</p> 
+            <p className='repo'>{user.public_repos}</p>
+            <p className="followers" style={{color: "rgb(100, 100, 100)"}}>Followers</p> 
+            <p className="followers">{user.followers}</p>
             <br/>
-            <p style={{color: "rgb(100, 100, 100)"}}>Pinned Repositories<br/><br/></p>
+            <p style={{color: "rgb(100, 100, 100)", position: "relative", bottom: "50px"}}>Pinned Repositories<br/><br/></p>
             <div className='repo-grid'>
               {userData.map((repo) => (
               <div key={repo.id} className="repo-tile">
