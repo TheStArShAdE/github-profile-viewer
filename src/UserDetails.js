@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "./UserDetails.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserDetails = () => {
   const { username } = useParams();
@@ -33,35 +34,51 @@ const UserDetails = () => {
       {loading ? (
         <p>Loading...</p>
       ) : user ? (
-        <div>
-          <div className="name-handle">
-            <p className="name">{user.name}</p>
-            <p className="handle">@{user.login}</p>
-            <img className="avatar" width='15%' height='20%' src={user.avatar_url} alt={user.login} />
-          </div>
-          <div className="details">
-            <p className="bio" style={{color: "rgb(100, 100, 100)"}}>Bio</p>
-            <p className='bio'>{user.bio}</p>
-            <br/>
-            <p className="company" style={{color: "rgb(100, 100, 100)"}}>Works at</p>
-            <p className='company'> {user.company}</p>
-            <br/>
-            <p className="repo" style={{color: "rgb(100, 100, 100)"}}>Repositories</p> 
-            <p className='repo'>{user.public_repos}</p>
-            <p className="followers" style={{color: "rgb(100, 100, 100)"}}>Followers</p> 
-            <p className="followers">{user.followers}</p>
-            <br/>
-            <p style={{color: "rgb(100, 100, 100)", position: "relative", bottom: "50px"}}>Pinned Repositories<br/><br/></p>
-            <div className='repo-grid'>
-              {userData.map((repo) => (
-              <div key={repo.id} className="repo-tile">
-                <p>{repo.owner.login}/{repo.name}</p>
-                <p>{repo.description}</p>
+        <>
+          <div>
+            <div className="name-handle d-flex pt-5 px-5 align-items-center">
+              <img className="avatar" width='15%' height='20%' src={user.avatar_url} alt={user.login} />
+              <div className='mx-3'>
+                <div className="name">{user.name}</div>
+                <div className="handle">@{user.login}</div>
               </div>
-              ))}
+            </div>
+            <div className="details mx-5 mt-2">
+              <div className="details-heading">Bio</div>
+              <div className='details-description'>{user.bio}</div>
+              <br />
+
+              <div className="details-heading">Works at</div>
+              <div className='details-description'> {user.company}</div>
+              <br />
+
+              <div className='d-flex justify-content-between'>
+                <div>
+                  <div className="details-heading">Repositories</div>
+                  <div className='details-description'>{user.public_repos}</div>
+                </div>
+                <div>
+                  <div className="details-heading">Followers</div>
+                  <div className="details-description">{user.followers}</div>
+                </div>
+              </div>
+              <br />
+
+              <div className='details-heading'>Pinned Repositories</div>
+              <div className='repo-grid'>
+                {userData.map((repo) => (
+                  <div key={repo.id} className="card card-shadow d-flex flex-row">
+                    <img className='repo-img mt-3 mx-3' src={repo.owner.avatar_url} alt={repo.owner.login} />
+                    <div className="card-body">
+                      <h5 className="card-title">{repo.owner.login}/{repo.name}</h5>
+                      <p className="card-text bio">{repo.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <p>User not found</p>
       )}

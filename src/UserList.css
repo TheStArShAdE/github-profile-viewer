@@ -1,23 +1,27 @@
 html {
-    border: 10px solid lightgray;
     height: calc(100% - 20px);
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 body {
     margin: 0px;
 }
+
 h1 {
     margin: 0px;
     font: sans-serif;
 }
+
 .logo {
     width: 4vw;
 }
+
 .search-box {
     background-color: rgb(235, 235, 235);
     height: 30vh;
 }
+
 .title {
     margin: 0px;
     position: relative;
@@ -25,40 +29,60 @@ h1 {
     left: 5vw;
     font-size: 40px;
 }
+
 .btn {
     width: 2vw;
     background-color: rgb(82, 163, 255);
 }
+
 .cross {
-    margin-left: 3vw;
-    top: 10px;
     font-size: 25px;
 }
+
 .magnifying-glass {
-    margin-left: 2vw;
     font-size: 25px;
-    top: 10px;
 }
+
 .search {
     background-color: rgb(82, 163, 255);
     border: 0px;
     width: 35vw;
     height: 30px;
-    margin-left: 2vw;
     font-size: 20px;
-    position: relative;
-    top: 10px;
 }
+
 .searchbar {
     background-color: rgb(82, 163, 255);
-    width: 50vw;
+    width: fit-content;
     height: 50px;
     margin-left: 5vw;
     margin-top: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-input[type="text" i] {
+
+input[type="text"] {
     padding: 0px;
+    color: #FFFFFF;
 }
+
+input[type="text"]::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FFFFFF;
+    opacity: 1; /*Firefox*/
+}
+
+input[type="text"]:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #FFFFFF;
+}
+
+input[type="text"]::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #FFFFFF;
+}
+
 button {
     background-color: rgb(82, 163, 255);
     color: white;

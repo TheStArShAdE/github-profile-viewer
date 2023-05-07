@@ -6,7 +6,7 @@ import UserDetails from './UserDetails';
 const App = () => {
   return (
     <Router>
-      <div className="container">
+      <div>
         <Routes>
           <Route exact path="/" element={<UserList/>} />
           <Route path="/user/:username" element={<UserDetails/>} />

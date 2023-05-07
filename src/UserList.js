@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './UserList.css'
@@ -12,7 +13,8 @@ const UserList = () => {
   const [loading, setLoading] = useState(false);
   const scrollContainerRef = useRef(null)
 
-  const accessToken = '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';
+  // Access token gets revoked after every commit hence the fetch call to API would result in 402 : Bad Authorization error
+  const accessToken = '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';
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -98,12 +100,16 @@ const UserList = () => {
       <br /><br />
       <div ref={scrollContainerRef} onScroll={handleScroll} style={{ height: '400px', overflowY: 'scroll' }} className="user-list">
         {users.map((user) => (
-          <div key={user.id} className="user-tile">
-            <Link to={`/user/${user.login}`} style={{textDecoration: "none", color: "black"}}>
-              <img src={user.avatar_url} alt={user.login} />
-              <h3>{user.userDetails.name}</h3>
-              <p>@{user.login}, works at {user.userDetails.company}</p>
-              <p>{user.userDetails.bio}</p>
+          <div key={user.id} className="user-tile mx-auto">
+            <Link to={`/user/${user.login}`} style={{ textDecoration: "none", color: "black" }}>
+              <div className="card card-shadow d-flex flex-row" style={{ width: '25rem' }}>
+                <img className='mt-3 mx-3' src={user.avatar_url} alt={user.login} />
+                <div className="card-body">
+                  <h5 className="card-title">{user.userDetails.name}</h5>
+                  <h6 className="card-subtitle mb-2 text-body-secondary">@{user.login}{user.userDetails.company ? ', works at '+ user.userDetails.company : ''}</h6>
+                  <p className="card-text bio">{user.userDetails.bio}</p>
+                </div>
+              </div>
             </Link>
           </div>
         ))}
