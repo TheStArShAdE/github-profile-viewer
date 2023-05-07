@@ -1,0 +1,59 @@
+html {
+    overflow-x: hidden;
+}
+.name-handle {
+    background-color: rgb(235, 235, 235);
+    height: 250px;
+}
+p {
+    margin: 0px;
+    position: relative;  
+}
+.avatar {
+    border-radius: 5px;
+    width: 100px;
+    height: 120px;
+    position: relative;
+    top: 25px;
+    left: 50px;
+}
+.name {
+    top: 125px;
+    left: 180px;
+    font-size: 35px;
+    color: rgb(100, 100, 100);
+}
+.handle {
+    top: 135px;
+    left: 180px;
+    font-size: 20px;
+    color: rgb(100, 100, 100);
+}
+.details {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-size: 25px;
+    position: relative;
+}
+.followers {
+    bottom: 55px;
+    left: calc(100% - 200px);
+}
+.repo-tile {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-right: 20px;
+    height: 100px;
+}
+.repo-tile p {
+    font-size: 20px;
+    margin-left: 10px;
+    text-align: left;
+}
+.repo-tile p:nth-of-type(1) {
+    font-weight: bold;
+}
+.repo-grid {
+    display: grid;
+    grid-gap: 10px;
+}

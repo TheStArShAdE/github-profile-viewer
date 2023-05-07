@@ -1,0 +1,67 @@
+html {
+    border: 10px solid lightgray;
+    height: calc(100% - 20px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body {
+    margin: 0px;
+}
+h1 {
+    margin: 0px;
+    font: sans-serif;
+}
+.logo {
+    width: 4vw;
+}
+.search-box {
+    background-color: rgb(235, 235, 235);
+    height: 30vh;
+}
+.title {
+    margin: 0px;
+    position: relative;
+    top: 10vh;
+    left: 5vw;
+    font-size: 40px;
+}
+.btn {
+    width: 2vw;
+    background-color: rgb(82, 163, 255);
+}
+.cross {
+    margin-left: 3vw;
+    top: 10px;
+    font-size: 25px;
+}
+.magnifying-glass {
+    margin-left: 2vw;
+    font-size: 25px;
+    top: 10px;
+}
+.search {
+    background-color: rgb(82, 163, 255);
+    border: 0px;
+    width: 35vw;
+    height: 30px;
+    margin-left: 2vw;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+}
+.searchbar {
+    background-color: rgb(82, 163, 255);
+    width: 50vw;
+    height: 50px;
+    margin-left: 5vw;
+    margin-top: 15vh;
+}
+input[type="text" i] {
+    padding: 0px;
+}
+button {
+    background-color: rgb(82, 163, 255);
+    color: white;
+    border: 0px;
+    position: relative;
+}
